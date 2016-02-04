@@ -2,12 +2,12 @@
 
 <%= form_for :contact, url: contacts_path do |f| %>
 	<p>
-		<%= f.label :email %> <br/> 
-		<%= f.text_field :email %>
+		<div><%= f.label :email %></div> <br/> 
+		<div><%= f.text_field :email %></div>
 	</p>
 	<p>
-		<%= f.label :message %> <br/> 
-		<%= f.text_area :message %>
+		<div><%= f.label :message %></div> <br/> 
+		<div><%= f.text_area :message %></div>
 	</p>
 	<p>
 		<%= f.submit 'Send message' %>
