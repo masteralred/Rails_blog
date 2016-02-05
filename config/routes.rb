@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'articles' => 'articles#index'
+
   get 'about' => 'about#index'
 
   get 'terms' => 'terms#index'
