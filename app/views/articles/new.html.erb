@@ -2,12 +2,12 @@
 
 <%= form_for :article, url: articles_path do |f| %>
 	<p>
-		<%= f.label :title %> <br/> 
-		<%= f.text_field :title %>
+		<div><%= f.label :title %></div><br/> 
+		<div><%= f.text_field :title %></div>
 	</p>
 	<p>
-		<%= f.label :text %> <br/> 
-		<%= f.text_area :text %>
+		<div><%= f.label :text %></div><br/> 
+		<div><%= f.text_area :text %></div>
 	</p>
 	<p>
 		<%= f.submit %>
