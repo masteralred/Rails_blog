@@ -1,1 +1,7 @@
 <h1>Список всех статей</h1>
+<hr/>
+
+<% @articles.each do |a| %>
+	<h3><%= a.title %></h3>
+	<%= a.text %><hr/>
+<% end %>
