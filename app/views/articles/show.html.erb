@@ -1,15 +1,15 @@
-<h1>Статья №: <%= @article.id %></h1>
-<h3><%= @article.title %></h3>
+<h1><%= @article.title %> <i>Статья №: <%= @article.id %></i></h1>
 <%= @article.text %>
 <hr/>
 <%= link_to "Show all articles", articles_path %>
 <hr/>
 <h2>Комментарии:</h2>
-<% @article.comments.each do |a| %>
-	<%= a.body %><br/>
-	Написал: <%= a.author %>
+<% @article.comments.each do |с| %>
+	<i><%= с.author %> сказал:</i><br/>
+	<%= с.body %>
 	<hr/>
 <% end %>
+<h2>Добавить комментарий</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
 	<p>
 		<%= f.label :author %><br/>
