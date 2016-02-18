@@ -2,11 +2,16 @@
 <html>
 <head>
   <title>RailsBlog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 
 <% if user_signed_in? %>
 	Hello, <b><%= current_user.username %></b> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
@@ -20,5 +25,6 @@
 
 <%= yield %>
 
+</div>
 </body>
 </html>
