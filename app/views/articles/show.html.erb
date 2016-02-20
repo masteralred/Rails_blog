@@ -9,15 +9,17 @@
 	<%= с.body %>
 	<hr/>
 <% end %>
-<h2>Добавить комментарий</h2>
-<%= form_for([@article, @article.comments.build]) do |f| %>
-	<p>
-		<%= f.label :author %><br/>
-		<%= f.text_field :author %>
-	</p>
-	<p>
-		<%= f.label :body %><br/>
-		<%= f.text_area :body %>
-	</p>
-	<%= f.submit %>
+
+<% if !current_user.nil? %>
+	<h2>Добавить комментарий</h2>
+	<%= form_for([@article, @article.comments.build]) do |f| %>
+		<%= f.hidden_field :author, value: current_user.username %>
+		<p>
+			<%= f.label :body %><br/>
+			<%= f.text_area :body %>
+		</p>
+		<%= f.submit %>
+	<% end %>
+<% elsif %>
+	<h3>Чтобы добавить комментарий вы должны авторизоваться</h3>
 <% end %>
