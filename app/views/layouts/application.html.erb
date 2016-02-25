@@ -74,9 +74,16 @@
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 
-		BODY TEXT
+		<div class="row">
+			<div class="col-md-8">
+				<%= yield %>
+			</div>
+			<div class="col-md-4">
+				--SIDE BAR--
+			</div>
+		</div>
 
-		<%= yield %>
+		
 	</div>
 
 	<footer>
