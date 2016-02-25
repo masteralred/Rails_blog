@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "articles#index"
   
   get 'home/index'
-
+  
   get 'terms' => 'pages#terms'
 
   get 'about' => 'pages#about'
