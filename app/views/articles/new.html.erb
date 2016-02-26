@@ -1,16 +1,14 @@
-<h1>New article</h1>
+<h1>Новая статья</h1>
 
 <%= form_for :article, url: articles_path do |f| %>
 	<%= f.hidden_field :author, value: current_user.username %>
-	<p>
-		<%= f.label :title %><br/> 
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :text %><br/> 
-		<%= f.text_area :text %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
+	<div class="form-group">
+		<%= f.label :title %>
+		<%= f.text_field :title, class: "form-control" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :text %> 
+		<%= f.text_area :text, class: "form-control", rows: "6" %>
+	</div>
+	<p><%= f.submit "Опубликовать", class: "btn btn-primary" %></p>
 <% end %>
