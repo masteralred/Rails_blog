@@ -1,9 +1,7 @@
-<h1><%= @article.title %> <i>Статья №: <%= @article.id %></i></h1>
+<h2><%= @article.title %></h2>
 <%= @article.text %>
 <hr/>
-<%= link_to "Show all articles", articles_path %>
-<hr/>
-<h2>Комментарии:</h2>
+<h3>Комментарии:</h3>
 <% @article.comments.each do |с| %>
 	<i><%= с.author %> сказал:</i><br/>
 	<%= с.body %>
@@ -11,15 +9,14 @@
 <% end %>
 
 <% if !current_user.nil? %>
-	<h2>Добавить комментарий</h2>
 	<%= form_for([@article, @article.comments.build]) do |f| %>
 		<%= f.hidden_field :author, value: current_user.username %>
-		<p>
-			<%= f.label :body %><br/>
-			<%= f.text_area :body %>
-		</p>
-		<%= f.submit %>
+		<div class="form-group">
+			<%= f.label :body, "Добавить комментарий" %><br/>
+			<%= f.text_area :body, class: "form-control", rows: "4" %>
+		</div>
+		<p><%= f.submit "Добавить", class: "btn btn-primary btn-sm" %></p>
 	<% end %>
 <% elsif %>
-	<h3>Чтобы добавить комментарий вы должны авторизоваться</h3>
+	<h4>Чтобы добавить комментарий вы должны авторизоваться</h4>
 <% end %>
