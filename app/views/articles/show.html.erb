@@ -13,7 +13,7 @@
 		<%= f.hidden_field :author, value: current_user.username %>
 		<div class="form-group">
 			<%= f.label :body, "Добавить комментарий" %><br/>
-			<%= f.text_area :body, class: "form-control", rows: "4" %>
+			<%= f.text_area :body, class: "form-control", rows: "4", placeholder: "Текст комментария" %>
 		</div>
 		<p><%= f.submit "Добавить", class: "btn btn-primary btn-sm" %></p>
 	<% end %>

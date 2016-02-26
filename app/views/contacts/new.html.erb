@@ -1,4 +1,4 @@
-<h1>Contact us</h1>
+<h2>Свяжитесь с нами</h2>
 
 <%= form_for :contact, url: contacts_path do |f| %>
 	<% if @contact && @contact.errors.any? %>
@@ -10,15 +10,13 @@
 			</ul>
 		</p>
 	<% end %>
-	<p>
-		<div><%= f.label :email %></div> <br/> 
-		<div><%= f.text_field :email %></div>
-	</p>
-	<p>
-		<div><%= f.label :message %></div> <br/> 
-		<div><%= f.text_area :message %></div>
-	</p>
-	<p>
-		<%= f.submit 'Send message' %>
-	</p>
+	<div class="form-group">
+		<%= f.label :email, "e-mail" %> 
+		<%= f.text_field :email, class: "form-control", placeholder: "ivanov@mail.com" %>
+	</div>
+	<div class="form-group">
+		<%= f.label :message, "Ваше сообщение" %>
+		<%= f.text_area :message, class: "form-control", placeholder: "Текст сообщения", rows: "4" %>
+	</div>
+	<p><%= f.submit 'Отправить сообщение', class: "btn btn-primary btn-sm" %></p>
 <% end %>
