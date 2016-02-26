@@ -5,14 +5,14 @@
 		<h3><%= link_to a.title, article_path(a) %></h3>
 		<div class="row">
 			<div class="col-sm-6 col-md-6 col-xs-6">
-				<span class="glyphicon glyphicon-folder-open"></span>  <a href="#">Signs</a>
-                <span class="glyphicon glyphicon-bookmark"></span> <a href="#">Aries</a>, <a href="#">Fire</a>, <a href="#">Mars</a>
+				<span class="glyphicon glyphicon-user"></span> Автор: <%= a.author %>
 			</div>
 			<div class="group2 col-sm-6 col-md-6 col-xs-6">
-                <span class="glyphicon glyphicon-pencil"></span> <%= a.comments.count %> Comments</a>
-                <span class="glyphicon glyphicon-time"></span> <%= a.created_at.localtime.strftime('%d-%m-%Y %H:%M') %>
+                <span class="glyphicon glyphicon-pencil"></span> <%= a.comments.count %> Комментариев</a>
+                <span class="glyphicon glyphicon-time"></span> Написал: <%= a.created_at.localtime.strftime('%d-%m-%Y %H:%M') %>
         	</div>
 		</div>
+		<br/>
 		<%= a.text %>
 		<div class="row">
 			<div class="col-md-3 col-md-offset-9">
