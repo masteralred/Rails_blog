@@ -4,26 +4,24 @@
 	<% @articles.each do |a| %>
 		<h3><%= link_to a.title, article_path(a) %></h3>
 		<div class="row">
-			<div class="col-sm-6 col-md-6 col-xs-6">
+			<div class="col-md-6 col-xs-6">
 				<span class="glyphicon glyphicon-user"></span> Автор: <%= a.author %>
 			</div>
-			<div class="group2 col-sm-6 col-md-6 col-xs-6">
+			<div class="col-md-6 col-xs-6">
                 <span class="glyphicon glyphicon-pencil"></span> <%= a.comments.count %> Комментариев</a>
                 <span class="glyphicon glyphicon-time"></span> Написал: <%= a.created_at.localtime.strftime('%d-%m-%Y %H:%M') %>
         	</div>
 		</div>
 		<br/>
 		<%= a.text %>
+		<br/><br/>
 		<div class="row">
-			<div class="col-md-3 col-md-offset-9">
-				<p>
-					<%= link_to "Show", article_path(a) %> | 
-					<%= link_to "Edit", edit_article_path(a) %> |
-					<%= link_to "Delete", a, method: :delete, data: { confirm: 'Are you sure?'} %>
-				</p>
-			</div>
+			<div class="col-md-2 col-md-offset-10"><%= link_to "Комментарии", article_path(a) %></div>
+			<% if user_signed_in? && a.author == current_user.username %>
+				<div class="col-md-5 col-md-offset-7"> | <%= link_to "Редактировать", edit_article_path(a) %> |
+				<%= link_to "Удалить", a, method: :delete, data: { confirm: 'Are you sure?'} %></div>
+			<% end %>
 		</div>
-		
 		<hr/>
 	<% end %>
 </article>
