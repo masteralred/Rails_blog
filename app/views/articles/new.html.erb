@@ -1,6 +1,7 @@
 <h1>New article</h1>
 
 <%= form_for :article, url: articles_path do |f| %>
+	<%= f.hidden_field :author, value: current_user.username %>
 	<p>
 		<%= f.label :title %><br/> 
 		<%= f.text_field :title %>
