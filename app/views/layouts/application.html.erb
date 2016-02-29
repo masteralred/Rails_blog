@@ -23,6 +23,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 	<header class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -66,25 +67,30 @@
                 
             </nav>
 
-	        
         </div>
 	</header>
 
 	<div id="body" class="container">
-			<p class="notice"><%= notice %></p>
-			<p class="alert"><%= alert %></p>
+			
 		<div class="row">
 			<div class="col-md-9">
-				<p><%= @success if !@success.nil? %></p>
+				<% if notice %>
+					<p class="alert alert-success"><%= notice %></p>
+				<% elsif alert %>
+					<p class="alert alert-danger"><%= alert %></p>
+				<% elsif @success %>
+					<p class="alert alert-success"><%= @success %></p>
+				<% end %>
+
 				<%= yield %>
 			</div>
+			
 			<div class="col-md-3">
 				--SIDE BAR--
 				-- Where are you? --
 			</div>
 		</div>
-
-		
+	
 	</div>
 
 	<footer>
