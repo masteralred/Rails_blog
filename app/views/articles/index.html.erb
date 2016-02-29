@@ -15,18 +15,17 @@
 		<br/>
 		<%= a.text %>
 		<br/><br/>
-		<div class="row">
-			
+					
 			<% if user_signed_in? && a.author == current_user.username %>
-				<div class="col-md-5 col-md-offset-7 col-xs-12">
-					<%= link_to "Комментарии", article_path(a) %> | 
+				<p> 
 					<%= link_to "Редактировать", edit_article_path(a) %> |
 					<%= link_to "Удалить", a, method: :delete, data: { confirm: 'Are you sure?'} %>
-				</div>
+					<%= link_to "Комментарии", article_path(a), class: "pull-right" %>
+				</p>
 			<% else %>
-				<div class="col-md-2 col-md-offset-10 col-xs-5 col-xs-offset-7"><%= link_to "Комментарии", article_path(a) %></div>
+				<p class="text-right"><%= link_to "Комментарии", article_path(a) %></p>
 			<% end %>
-		</div>
+		
 		<hr/>
 	<% end %>
 </article>
