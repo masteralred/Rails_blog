@@ -1,5 +1,15 @@
 <h2>Новая статья</h2>
 
+<% if @contact && @contact.errors.any? %>
+	<p>
+		<ul>
+			<% @contact.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</p>
+<% end %>
+
 <%= form_for :article, url: articles_path do |f| %>
 	<%= f.hidden_field :author, value: current_user.username %>
 	<div class="form-group">

@@ -71,16 +71,16 @@
 	</header>
 
 	<div id="body" class="container">
-		
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
 		<div class="row">
 			<div class="col-md-9">
+				<p><%= @success if !@success.nil? %></p>
 				<%= yield %>
 			</div>
 			<div class="col-md-3">
 				--SIDE BAR--
+				-- Where are you? --
 			</div>
 		</div>
 

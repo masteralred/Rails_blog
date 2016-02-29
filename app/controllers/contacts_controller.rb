@@ -6,10 +6,16 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new contact_params
     if @contact.valid?
-      @contact.save    
+      @contact.save
+      redirect_to contacts_confirmation_path   
     else
       render action: 'new'
     end
+  end
+
+  def confirmation
+    @success = "Ваше сообщение отправлено, спасибо за отзыв!"
+    render action: 'new'
   end
 
   private

@@ -1,15 +1,16 @@
 <h2>Свяжитесь с нами</h2>
 
-<%= form_for :contact, url: contacts_path do |f| %>
-	<% if @contact && @contact.errors.any? %>
-		<p>
-			<ul>
+<% if @contact && @contact.errors.any? %>
+	<p>
+		<ul>
 			<% @contact.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
+				<li><%= msg %></li>
 			<% end %>
-			</ul>
-		</p>
-	<% end %>
+		</ul>
+	</p>
+<% end %>
+
+<%= form_for :contact, url: contacts_path do |f| %>
 	<div class="form-group">
 		<%= f.label :email, "e-mail" %> 
 		<%= f.text_field :email, class: "form-control", placeholder: "ivanov@mail.com" %>

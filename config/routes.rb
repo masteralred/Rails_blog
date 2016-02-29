@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about'
 
+  get 'contacts/confirmation' => 'contacts#confirmation'
+
   resource :contacts, only: [:new, :create], path_names: {:new => ''}
   resources :articles do
     resources :comments, only: [:create]
