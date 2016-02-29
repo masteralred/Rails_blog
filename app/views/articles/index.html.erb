@@ -4,11 +4,11 @@
 	<% @articles.each do |a| %>
 		<h3><%= link_to a.title, article_path(a) %></h3>
 		<div class="row">
-			<div class="col-md-6 col-xs-6">
-				<span class="glyphicon glyphicon-user"></span> Автор: <%= a.author %>
+			<div class="col-md-7 col-xs-12">
+				<span class="glyphicon glyphicon-time"></span> Написал: <%= a.created_at.localtime.strftime('%d-%m-%Y %H:%M') %>
 			</div>
-			<div class="col-md-6 col-xs-6">
-                <span class="glyphicon glyphicon-time"></span> Написал: <%= a.created_at.localtime.strftime('%d-%m-%Y %H:%M') %>
+			<div class="col-md-5 col-xs-12">
+				<span class="glyphicon glyphicon-user"></span> Автор: <%= a.author %> 
                 <span class="glyphicon glyphicon-pencil"></span> Комментариев: <%= a.comments.count %>
         	</div>
 		</div>
