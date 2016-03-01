@@ -10,18 +10,20 @@
   <!-- Project name -->
   <title>RailsBlog</title>
 
-  <!-- Bootstrap CSS files --> 
-  <link href="/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="/bootstrap-3.3.6/css/bootstrap-theme.min.css" rel="stylesheet" />
-
-  <!-- Bootstrap JS files -->
-  <script src="/jquery-1.12.0.min.js"></script>
-  <script src="/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-  
   <!-- Rails service files -->
+  	<!-- Service javascript frameworks connection -->
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<!-- Cross-site request forgery protection -->
+  	<%= csrf_meta_tags %>
+  	
+  <!-- Bootstrap JS file -->
+  <%= javascript_include_tag "/bootstrap-3.3.6/js/bootstrap.min" %>
+
+  <!-- Bootstrap CSS files --> 
+  <%= stylesheet_link_tag "/bootstrap-3.3.6/css/bootstrap.min", "/bootstrap-3.3.6/css/bootstrap-theme.min" %>
+
+  <!-- Rails application css file (goes after Bootstrap to override it) -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
 </head>
 
 <body>
