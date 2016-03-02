@@ -27,11 +27,7 @@
   </div>
 
   <div class="form-group">
-        <%= f.submit "Sign up", class: "btn btn-success" %>    
+        <%= f.submit "Sign up", class: "btn btn-default" %>    
   </div>
 <% end %>
-<div style="font-size: 20px; font-weight: 700">
-  OR if you already registered user than, please proceed to signing in form
-  <span class="glyphicon glyphicon-arrow-right"></span>
-  <%= render "devise/shared/links" %>
-</div>
+<%= render "devise/shared/links" %>
