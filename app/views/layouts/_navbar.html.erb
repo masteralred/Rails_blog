@@ -1,0 +1,40 @@
+<div class="navbar-header">
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse-1" aria-expanded="false">
+                	<span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <%= link_to root_path, class: "navbar-brand" do %>
+					<span class="glyphicon glyphicon-globe"></span>
+				<% end %>
+
+</div>
+
+<nav class="collapse navbar-collapse" id="nav-collapse-1">
+            	
+    <p class="navbar-text navbar-right">
+       	<% if user_signed_in? %>
+			Signed in as <b><%= current_user.username %></b> | 
+			<%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-link" %>
+		<% else %>
+			<%= link_to "Sign In", new_user_session_path, class: "navbar-link" %>
+		<% end %>
+	</p>
+                	   	
+    <%= form_tag({action: 'index', controller: '/home'}, {method: "get", class: "navbar-form navbar-right"}) do %>
+    	<div class="form-group">
+  			<%= text_field_tag(:search_input, nil, :placeholder => 'Search', :class => "form-control") %>
+  		</div>
+  		<%= button_tag("Search", :class => "btn btn-default") %>
+	<% end %>
+
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><%= link_to "Связаться", new_contacts_path %></li>
+        <li><%= link_to "Новая статья", new_article_path %></li>
+    </ul>
+                
+</nav>

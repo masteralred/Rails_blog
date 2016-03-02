@@ -27,88 +27,30 @@
 </head>
 
 <body>
+
+	<!-- Navigation bar -->
 	<header class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
-	        <div class="navbar-header">
-
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse-1" aria-expanded="false">
-                	<span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <%= link_to root_path, class: "navbar-brand" do %>
-					<span class="glyphicon glyphicon-globe"></span>
-				<% end %>
-
-            </div>
-            <nav class="collapse navbar-collapse" id="nav-collapse-1">
-            	
-                <p class="navbar-text navbar-right">
-                	<% if user_signed_in? %>
-						Signed in as <b><%= current_user.username %></b> | 
-						<%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-link" %>
-					<% else %>
-						<%= link_to "Sign In", new_user_session_path, class: "navbar-link" %>
-					<% end %>
-				</p>
-                	   	
-            	<%= form_tag({action: 'index', controller: '/home'}, {method: "get", class: "navbar-form navbar-right"}) do %>
-            		<div class="form-group">
-  						<%= text_field_tag(:search_input, nil, :placeholder => 'Search', :class => "form-control") %>
-  					</div>
-  					<%= button_tag("Search", :class => "btn btn-default") %>
-				<% end %>
-
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><%= link_to "Связаться", new_contacts_path %></li>
-                    <li><%= link_to "Новая статья", new_article_path %></li>
-                </ul>
-                
-            </nav>
-
+	        <%= render "layouts/navbar" %>
         </div>
 	</header>
 
 	<div id="body" class="container">
-			
+		
+		<!-- Main page -->	
 		<div class="row">
-			<div class="col-md-9">
-				<% if notice %>
-					<p class="alert alert-success"><%= notice %></p>
-				<% elsif alert %>
-					<p class="alert alert-danger"><%= alert %></p>
-				<% elsif @success %>
-					<p class="alert alert-success"><%= @success %></p>
-				<% end %>
 
+			<!-- Main content part -->
+			<div class="col-md-9">
+				<%= render "layouts/flash_messages" %>
 				<%= yield %>
 			</div>
 			
+			<!-- Side bar -->
 			<div class="col-md-3">
-				<div class="well text-center">
-        			<p class="lead">
-            			Не хочешь пропускать новые посты? Тогда жми на кнопку!
-       				</p>
-        			<button class="btn btn-success">Подписаться</button>
-    			</div>
-    			<div class="panel panel-info">
-    				<div class="panel-heading">
-        				<h3 class="panel-title">Panel title</h3>
-    				</div>
-    				<div class="panel-body">
-            			<ul class="list-group">
-					        <li class="list-group-item"><a href="singlepost.html">1. Aries Sun Sign March 21 - April 19</a></li>
-					        <li class="list-group-item"><a href="singlepost.html">2. Taurus Sun Sign April 20 - May 20</a></li>
-					        <li class="list-group-item"><a href="singlepost.html">3. Gemini Sun Sign May 21 - June 21</a></li>
-					        <li class="list-group-item"><a href="singlepost.html">4. Cancer Sun Sign June 22 - July 22</a></li>
-					        <li class="list-group-item"><a href="singlepost.html">5. Leo Sun Sign July 23 - August 22 </a></li>
-   	 					</ul>
-    				</div>
-				</div>
+				<%= render "layouts/sidebar" %>
 			</div>
+
 		</div>
 	
 	</div>
