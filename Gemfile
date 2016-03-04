@@ -37,6 +37,10 @@ gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use 'rspec' as a unit tester
+  gem 'rspec-rails', '~> 3.0'
+  # Use 'capybara' as simulating web user (integration testing)
+  gem 'capybara'
 end
 
 group :development do
