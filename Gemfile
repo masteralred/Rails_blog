@@ -41,6 +41,8 @@ group :test, :development do
   gem 'rspec-rails', '~> 3.0'
   # Use 'capybara' as simulating web user (integration testing)
   gem 'capybara'
+  # Use for test of models, cause rspec don`t have any
+  gem 'shoulda-matchers'
 end
 
 group :development do
