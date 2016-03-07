@@ -44,7 +44,7 @@ group :test, :development do
   # Use for test of models, cause rspec don`t have any
   gem 'shoulda-matchers'
   # Use 'factory girl' for automate command in tests
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
