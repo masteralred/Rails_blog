@@ -43,6 +43,8 @@ group :test, :development do
   gem 'capybara'
   # Use for test of models, cause rspec don`t have any
   gem 'shoulda-matchers'
+  # Use 'factory girl' for automate command in tests
+  gem 'factory_girl_rails'
 end
 
 group :development do
