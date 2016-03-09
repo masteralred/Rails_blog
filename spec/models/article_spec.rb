@@ -13,11 +13,21 @@ describe Article do
 
   describe '#subject' do
     it 'returns article title' do
-      # Arrange (prepare) object with Factory Girl
+      # Arrange (prepare) instance with Factory Girl
       article = create(:article, title: 'Test article')
 
       # Assert (checking/test)
       expect(article.subject).to eq 'Test article'
+    end
+  end
+
+  describe '#last_comment' do
+    it 'returns Article last commentary' do
+      # Arrange instance, but this time with comments
+      article = create(:article_with_comments)
+
+      # Assert
+      expect(article.last_comment.body).to eq 'Comment number 3'
     end
   end
 end
