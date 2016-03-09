@@ -9,6 +9,7 @@ describe Article do
   describe 'validations' do
     it { should validate_presence_of :title }
     it { should validate_presence_of :text }
+    it { should validate_length_of(:title).is_at_least(3).is_at_most(140).on(:create) }
   end
 
   describe '#subject' do
