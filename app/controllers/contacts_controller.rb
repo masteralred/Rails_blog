@@ -1,21 +1,17 @@
 class ContactsController < ApplicationController
 
-  def new 
+  def new
   end
 
   def create
     @contact = Contact.new contact_params
     if @contact.valid?
       @contact.save
-      redirect_to contacts_confirmation_path   
+      flash[:notice] = "Ваше сообщение отправлено, спасибо за отзыв!"
+      redirect_to new_contacts_path   
     else
       render action: 'new'
     end
-  end
-
-  def confirmation
-    @success = "Ваше сообщение отправлено, спасибо за отзыв!"
-    render action: 'new'
   end
 
   private
