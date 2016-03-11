@@ -45,6 +45,8 @@ group :test, :development do
   gem 'shoulda-matchers'
   # Use 'factory girl' for automate command in tests
   gem 'factory_girl_rails', '~> 4.0'
+  # Use 'Database Cleaner' for emptying db after each test
+  gem 'database_cleaner'
 end
 
 group :development do
