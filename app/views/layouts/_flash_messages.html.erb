@@ -1,7 +1,23 @@
+<!-- Flash messages tree -->
+
 <% if notice %>
-	<p class="alert alert-success"><%= notice %></p>
+	<!-- Override devise native class -->
+	<div class="alert alert-success" role="alert">
+		<a href="#" data-dismiss="alert" class="close">×</a>
+		<%= notice %>
+	</div>
 <% elsif alert %>
-	<p class="alert alert-danger"><%= alert %></p>
-<% elsif @success %>
-	<p class="alert alert-success"><%= @success %></p>
+	<!-- Override devise native class -->
+	<div class="alert alert-danger" role="alert">
+		<a href="#" data-dismiss="alert" class="close">×</a>
+		<%= alert %>
+	</div>
+<% else %>
+	<!-- Standart bootstrap flashes -->
+	<% flash.each do |message_type, message| %>
+	    <div class="alert alert-<%= message_type %>">
+	    	<a href="#" data-dismiss="alert" class="close">×</a>
+	    	<%= message %>
+	    </div>
+	<% end %>
 <% end %>
