@@ -10,7 +10,7 @@ feature 'Article Edit' do
   scenario 'allows user to visit article edit page' do
     visit article_path(1)
     click_link 'Редактировать'
-    expect(page).to have_content 'Edit article'
+    expect(page).to have_content 'Edit Article'
   end
 
   scenario 'allows user to edit article' do
@@ -20,7 +20,7 @@ feature 'Article Edit' do
     fill_in :article_title, :with => 'New article header2'
     fill_in :article_text, :with => 'New article body2'
   
-    click_button 'Save Article'
+    click_button 'Save'
 
     expect(page).to have_content 'New article header2'
   end
