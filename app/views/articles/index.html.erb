@@ -8,23 +8,18 @@
 				<span class="glyphicon glyphicon-time"></span> Создан: <%= a.created_at.localtime.strftime('%d-%m-%Y %H:%M') %>
 			</div>
 			<div class="col-md-5 col-xs-12">
-				<span class="glyphicon glyphicon-user"></span> Автор: <%= a.author %> 
-                <span class="glyphicon glyphicon-pencil"></span> Комментариев: <%= a.comments.count %>
+				<div class='pull-right'>
+					<span class="glyphicon glyphicon-user"></span> Автор: <%= a.author %> 
+                	<span class="glyphicon glyphicon-pencil"></span> Комментариев: <%= a.comments.count %>
+                </div>
         	</div>
 		</div>
 		<br/><img src="img/900x300.jpg" class="img-responsive"><br/>
 		<%= a.text %>
 		<br/><br/>
 					
-			<% if user_signed_in? && a.author == current_user.username %>
-				<p> 
-					<%= link_to "Редактировать", edit_article_path(a) %> |
-					<%= link_to "Удалить", a, method: :delete, data: { confirm: 'Are you sure?'} %>
-					<%= link_to "Комментарии", article_path(a), class: "pull-right" %>
-				</p>
-			<% else %>
-				<p class="text-right"><%= link_to "Комментарии", article_path(a) %></p>
-			<% end %>
+		<p class="text-right"><%= link_to "Комментарии", article_path(a) %></p>
+			
 		<hr/>
 	<% end %>
 </article>

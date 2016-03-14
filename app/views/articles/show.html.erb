@@ -1,6 +1,14 @@
 <h2><%= @article.title %></h2>
 <%= @article.text %>
 <hr/>
+
+<% if user_signed_in? && @article.author == current_user.username %>
+	<p class="text-right"> 
+		<%= link_to "Редактировать", edit_article_path(@article) %> |
+		<%= link_to "Удалить", @article, method: :delete, data: { confirm: 'Are you sure?'} %>
+	</p>
+<% end %>
+
 <h3>Комментарии:</h3>
 <% @article.comments.each do |с| %>
 	<i><%= с.author %> сказал:</i><br/>
@@ -17,6 +25,6 @@
 		</div>
 		<p><%= f.submit "Добавить", class: "btn btn-primary btn-sm" %></p>
 	<% end %>
-<% elsif %>
+<% else %>
 	<h4>Чтобы добавить комментарий вы должны авторизоваться</h4>
 <% end %>
