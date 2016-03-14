@@ -9,4 +9,12 @@ feature 'Article Creation' do
     visit new_article_path
     expect(page).to have_content I18n.t('articles.article_new')
   end
+
+  scenario 'allows user to create new article' do
+    visit new_article_path
+    fill_in :article_title, :with => 'New article header'
+    fill_in :article_text, :with => 'New article body'
+    click_button 'Опубликовать'
+    expect(page).to have_content 'New article body'
+  end
 end
