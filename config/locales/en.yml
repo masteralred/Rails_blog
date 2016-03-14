@@ -20,10 +20,23 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  headers:
+    contacts:
+      contact_us: "Contact us"
 
-  contacts:
-    contact_us: "Contact us"
+    articles:
+      article_new: "New article"
+      article_index: "Latests Posts"
+      article_show: ""
+      article_edit: "Edit Article %{number}"
 
-  articles:
-    article_new: "New article"
+    home:
+      home_index: "Home Index"
+
+    pages:
+      page_about: "About Us"
+      page_terms: "Terms and Conditions"
+
+    devise:
+      sign_in: "Sign In"
+      sign_up: "Registration"

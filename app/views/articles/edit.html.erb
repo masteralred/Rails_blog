@@ -1,4 +1,4 @@
-<h1>Edit article: <%= @article.id %></h1>
+<h1><%= t('headers.articles.article_edit', number: @article.id) %></h1>
 
 <%= form_for :article, url: article_path(@article), method: :put do |f| %>
 	<div class="form-group">
