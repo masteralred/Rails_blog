@@ -32,9 +32,12 @@
 	<% end %>
 
     <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li class="active"><%= link_to "Home", root_path %></li>
         <li><%= link_to "Связаться", new_contacts_path %></li>
         <li><%= link_to "Новая статья", new_article_path %></li>
+        <li><%= link_to "О нас", about_path %></li>
+        <li><%= link_to "Условия", terms_path %></li>
+        <li><%= link_to "home/index", home_index_path %></li>
     </ul>
                 
 </nav>
