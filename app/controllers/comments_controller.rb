@@ -8,7 +8,9 @@ class CommentsController < ApplicationController
     if @comment.save 
       redirect_to @article
     else
-      redirect_to @article
+      @article = Article.find(params[:article_id])
+      @comment_flash = 'Type something in the field (minimum 3 chars)'
+      render "articles/show"
     end
     
   end

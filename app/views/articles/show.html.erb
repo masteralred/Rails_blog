@@ -16,6 +16,13 @@
 	<hr/>
 <% end %>
 
+<% if !@comment_flash.nil? %>
+	<div class="alert alert-warning" id="fl1">
+		<a href="#" data-dismiss="alert" class="close">×</a>
+		<%= @comment_flash %>
+	</div>
+<% end %>
+
 <% if !current_user.nil? %>
 	<%= form_for([@article, @article.comments.build]) do |f| %>
 		<%= f.hidden_field :author, value: current_user.username %>
@@ -28,3 +35,9 @@
 <% else %>
 	<h4>Чтобы добавить комментарий вы должны авторизоваться</h4>
 <% end %>
+
+<script type="text/javascript">
+
+	$("body").scrollTop($("#fl1").position().top);
+
+</script>
