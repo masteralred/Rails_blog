@@ -17,26 +17,26 @@
             	
     <p class="navbar-text navbar-right">
        	<% if user_signed_in? %>
-			Signed in as <b><%= current_user.username %></b> | 
-			<%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-link" %>
+			<%= t('navbar.nav_who') %> <b><%= current_user.username %></b> | 
+			<%= link_to t('navbar.nav_sign_out'), destroy_user_session_path, method: :delete, class: "navbar-link" %>
 		<% else %>
-			<%= link_to "Sign In", new_user_session_path, class: "navbar-link" %>
+			<%= link_to t('navbar.nav_sign_in'), new_user_session_path, class: "navbar-link" %>
 		<% end %>
 	</p>
                 	   	
     <%= form_tag({action: 'index', controller: '/home'}, {method: "get", class: "navbar-form navbar-right"}) do %>
     	<div class="form-group">
-  			<%= text_field_tag(:search_input, nil, :placeholder => 'Search', :class => "form-control") %>
+  			<%= text_field_tag(:search_input, nil, :placeholder => t('navbar.nav_search_placeholder'), :class => "form-control") %>
   		</div>
-  		<%= button_tag("Search", :class => "btn btn-default") %>
+  		<%= button_tag(t('navbar.nav_search_button'), :class => "btn btn-default") %>
 	<% end %>
 
     <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Связаться", new_contacts_path %></li>
-        <li><%= link_to "Новая статья", new_article_path %></li>
-        <li><%= link_to "О нас", about_path %></li>
-        <li><%= link_to "Условия", terms_path %></li>
+        <li><%= link_to t('navbar.nav_home'), root_path %></li>
+        <li><%= link_to t('navbar.nav_contact'), new_contacts_path %></li>
+        <li><%= link_to t('navbar.nav_new_article'), new_article_path %></li>
+        <li><%= link_to t('navbar.nav_about'), about_path %></li>
+        <li><%= link_to t('navbar.nav_terms'), terms_path %></li>
         <li><%= link_to "home/index", home_index_path %></li>
     </ul>
                 

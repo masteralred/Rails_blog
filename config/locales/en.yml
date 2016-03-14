@@ -40,3 +40,15 @@ en:
     devise:
       sign_in: "Sign In"
       sign_up: "Registration"
+
+  navbar:
+    nav_home: "Home"
+    nav_contact: "Contact us"
+    nav_new_article: "New article"
+    nav_about: "About us"
+    nav_terms: "Terms"
+    nav_who: "Signed in as"
+    nav_sign_in: "Sign In"
+    nav_sign_out: "Sign Out"
+    nav_search_button: "Search"
+    nav_search_placeholder: "Your request"
