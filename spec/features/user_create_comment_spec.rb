@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Comment Creation' do
   before do
     sign_up
-    article_create
+    create_article
   end
 
   scenario 'allows user to visit article page' do
