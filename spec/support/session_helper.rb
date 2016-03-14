@@ -9,11 +9,19 @@ def sign_up
   click_button 'Sign up'
 end
 
-def article_create
+def create_article
   visit new_article_path
   
   fill_in :article_title, :with => 'New article header'
   fill_in :article_text, :with => 'New article body'
   
   click_button 'Опубликовать'
+end
+
+def add_comment
+  visit article_path(1)
+  
+  fill_in :comment_body, :with => 'Some text'
+  
+  click_button 'Добавить'
 end
